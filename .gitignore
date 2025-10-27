@@ -2,5 +2,6 @@
 **/obj/
 **/*.a
 **/a.out
+minilibx-linux/
 kurek*
 cub3d

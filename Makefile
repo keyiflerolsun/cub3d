@@ -21,25 +21,27 @@ RESET   = \033[0m
 
 all: $(NAME)
 
-$(NAME): $(OFILES) $(MLX)
+$(NAME): $(MLX) $(OFILES)
 	@printf "$(GREEN)» 📦 Linking   $(RESET)» $(MAGENTA)./$(NAME)$(RESET)\n"
 	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(OFILES) $(MLX) -o $(NAME)
 
 $(OBJDIR)/%.o: %.c
 	@mkdir -p $(OBJDIR)
-	@printf "$(BLUE)» ⚙️  Compiling $(RESET)» $(YELLOW)%14s$(RESET) | $(GREEN)%s$(RESET)\n" "$<" "$@"
+	@printf "$(BLUE)» ⚙️  Compiling $(RESET)» $(YELLOW)%12s$(RESET) | $(GREEN)%s$(RESET)\n" "$<" "$@"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(MLX): FORCE
+	@[ -d $(dir $(MLX)) ] || git clone https://github.com/42Paris/minilibx-linux.git
 	@$(MAKE) -C $(dir $@)
 
 clean:
 	@printf "$(RED)» 🧹 Cleaning  $(RESET)» $(CYAN)./$(OBJDIR) $(RESET)\n"
+	@[ -d $(dir $(MLX)) ] && $(MAKE) -C $(dir $(MLX)) clean || true
 	@rm -rf $(OBJDIR)
-	@$(MAKE) -C $(dir $(MLX)) clean
 
 fclean: clean
 	@printf "$(RED)» 🔥 Removing  $(RESET)» $(MAGENTA)./$(NAME)$(RESET)\n"
+	@rm -rf $(dir $(MLX))
 	@rm -f $(NAME)
 
 re: fclean all
