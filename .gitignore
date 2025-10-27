@@ -1,5 +1,8 @@
 **/.vscode/
 **/obj/
 **/*.a
-minilibx-linux/
-cub3d
+**/a.out
+kurek*
+here_doc
+minismet
+minishell
