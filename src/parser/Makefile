@@ -14,7 +14,7 @@ OFILES = $(addprefix $(OBJDIR)/, $(CFILES:.c=.o))
 
 NAME   = parser.a
 CC     = cc
-CFLAGS = -Wall -Wextra -Werror -I../../ft_printf -I../../get_next_line -I../../libft -I../../minilibx-linux -I../.. -I.
+CFLAGS = -Wall -Wextra -Werror -g3 -I../../ft_printf -I../../get_next_line -I../../libft -I../../minilibx-linux -I../.. -I.
 
 GREEN   = \033[0;32m
 YELLOW  = \033[0;33m

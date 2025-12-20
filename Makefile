@@ -5,7 +5,7 @@ OFILES = $(addprefix $(OBJDIR)/, $(CFILES:.c=.o))
 
 NAME      = cub3d
 CC        = cc
-CFLAGS    = -std=gnu11 -Wall -Wextra -Werror -Ift_printf -Iget_next_line -Ilibft -Iminilibx-linux -Isrc/parser -Isrc/game -I.
+CFLAGS    = -std=gnu11 -g3 -Wall -Wextra -Werror -Ift_printf -Iget_next_line -Ilibft -Iminilibx-linux -Isrc/parser -Isrc/game -I.
 MLX_FLAGS = -Lminilibx-linux -lmlx -lX11 -lXext -lm
 
 MAKEFLAGS += --no-print-directory --silent

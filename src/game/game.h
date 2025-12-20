@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osancak <osancak@student.42istanbul.c      +#+  +:+       +#+        */
+/*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 13:15:48 by osancak           #+#    #+#             */
-/*   Updated: 2025/12/19 11:28:33 by osancak          ###   ########.fr       */
+/*   Updated: 2025/12/20 15:58:17 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 
 # include "cub3d.h"
 
-// print_game_info.c
 void	print_game_info(t_game *game);
-
-// game_init.c (future)
-// game_loop.c (future)
-// game_close.c (future)
+int		draw_loop(t_game *game);
+void	clear_image(t_game *game);
+void	put_pixel(int x, int y, int color, t_game *game);
+void	move_player(t_game *game);
 
 #endif
