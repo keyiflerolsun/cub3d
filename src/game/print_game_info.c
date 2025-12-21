@@ -28,8 +28,8 @@ void	clear_image(t_game *game)
 
 static void	init_player(t_game *game)
 {
-	game->player.x = (3 * BLOCK_SIZE) + (BLOCK_SIZE / 2);
-	game->player.y = (3 * BLOCK_SIZE) + (BLOCK_SIZE / 2);
+	game->player.x = (game->player.column * BLOCK_SIZE) + (BLOCK_SIZE / 2);
+	game->player.y = (game->player.row * BLOCK_SIZE) + (BLOCK_SIZE / 2);
 	game->player.rotation = P / 2;
 	game->player.key_down = 0;
 	game->player.key_right = 0;

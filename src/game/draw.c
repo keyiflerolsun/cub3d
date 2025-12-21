@@ -56,8 +56,8 @@ static float	get_dda_dist(t_game *game, float angle, t_ray *ray)
 			ray->map_y += ray->step_y;
 			ray->side = 1;
 		}
-		if (ray->map_y < 0 || ray->map_y >= 10 || ray->map_x < 0
-			|| ray->map_x >= 15
+		if (ray->map_y < 0 || ray->map_y >= (int)game->map.rows || ray->map_x < 0
+			|| ray->map_x >= (int)game->map.columns
 			|| game->map.full[ray->map_y][ray->map_x] == '1')
 			hit = 1;
 	}

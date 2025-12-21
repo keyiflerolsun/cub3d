@@ -28,8 +28,7 @@ all: $(NAME)
 
 $(NAME): $(MLX) $(OFILES) $(PRINTF) $(GNL) $(LIBFT) $(PARSER) $(GAME)
 	@printf "$(GREEN)» 📦 Linking   $(RESET)» $(MAGENTA)./$(NAME)$(RESET)\n"
-	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(OFILES) $(GAME) $(PARSER) $(PRINTF) $(GNL) $(LIBFT) $(MLX) -o $(NAME)
-
+	@$(CC) $(CFLAGS) $(OFILES) $(GAME) $(PARSER) $(PRINTF) $(GNL) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $(NAME)
 $(OBJDIR)/%.o: %.c
 	@mkdir -p $(dir $@)
 	@printf "$(BLUE)» ⚙️  Compiling $(RESET)» $(YELLOW)%20s$(RESET) | $(GREEN)%s$(RESET)\n" "$<" "$@"

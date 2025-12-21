@@ -61,14 +61,14 @@ void	move_player(t_game *game)
 	position_player(game, &new_y, &new_x);
 	map_x = (int)(game->player.x / BLOCK_SIZE);
 	map_y = (int)(new_y / BLOCK_SIZE);
-	if (map_y >= 0 && map_y < 10 && map_x >= 0 && map_x < 15)
+	if (map_y >= 0 && map_y < (int)game->map.rows && map_x >= 0 && map_x < (int)game->map.columns)
 	{
 		if (game->map.full[map_y][map_x] != '1')
 			game->player.y = new_y;
 	}
 	map_x = (int)(new_x / BLOCK_SIZE);
 	map_y = (int)(game->player.y / BLOCK_SIZE);
-	if (map_y >= 0 && map_y < 10 && map_x >= 0 && map_x < 15)
+	if (map_y >= 0 && map_y < (int)game->map.rows && map_x >= 0 && map_x < (int)game->map.columns)
 	{
 		if (game->map.full[map_y][map_x] != '1')
 			game->player.x = new_x;
