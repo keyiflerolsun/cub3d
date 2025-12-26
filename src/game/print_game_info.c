@@ -21,6 +21,7 @@ void	put_pixel(int x, int y, int color, t_game *game)
 	offset = (y * game->size_line) + (x * (game->bpp / 8));
 	*(unsigned int *)(offset + game->data) = color;
 }
+
 void	clear_image(t_game *game)
 {
 	memset(game->data, 0, game->size_line * HEIGHT);
@@ -30,7 +31,14 @@ static void	init_player(t_game *game)
 {
 	game->player.x = (game->player.column * BLOCK_SIZE) + (BLOCK_SIZE / 2);
 	game->player.y = (game->player.row * BLOCK_SIZE) + (BLOCK_SIZE / 2);
-	game->player.rotation = P / 2;
+	if (game->player.direction == 'S')
+		game->player.rotation = P / 2;
+	else if (game->player.direction == 'W')
+		game->player.rotation = P;
+	else if (game->player.direction == 'E')
+		game->player.rotation = P*2;
+	else if (game->player.direction == 'N')
+		game->player.rotation = P + P/2;
 	game->player.key_down = 0;
 	game->player.key_right = 0;
 	game->player.key_up = 0;

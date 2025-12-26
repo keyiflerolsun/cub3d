@@ -1,4 +1,4 @@
-CFILES = print_game_info.c draw.c player.c
+CFILES = print_game_info.c draw.c player.c paint.c
 
 OBJDIR = obj
 OFILES = $(addprefix $(OBJDIR)/, $(CFILES:.c=.o))
